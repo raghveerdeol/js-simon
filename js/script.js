@@ -1,33 +1,35 @@
 let randomEL = document.querySelector("div#random-num");
 let numeriDaIndovinare = getRandomNumber();
 randomEL.append(numeriDaIndovinare);
- 
+console.log(numeriDaIndovinare)
+
 const timer = setTimeout(function (){
     randomEL.innerHTML = "";
-}, 30 * 1000);
+}, 5 * 1000);
 
 const userTimer = setTimeout(function () {
+    let userEL = document.querySelector("div#user-num");
     let numeriSelezionati = NumeriGiocatore();
-console.log(numeriSelezionati);
-}, 31 * 1000)
+    userEL.append(numeriSelezionati);
+    const risultato = Comparazione(numeriDaIndovinare, numeriSelezionati)
+    console.log(numeriSelezionati, risultato);
+}, 6 * 1000);
 
 
-// -verifico se il numero non è già presente ne array numeroUtente pusho il numero;
-// -se è presente ignoro il numero;
-// const userNumers = setTimeOut(function{
-// NumeoGiocatore();
-// } 31*1000)
-function NumeriGiocatore() {
-    let numeroUtente = [];
-    // -uso ciclo while numeroUtente.length < 5 con al interno prompt per avere 5 numeri dal utente;
-    while (numeroUtente.length < 5) {
-        const numero = Number.parseInt(prompt("Inserire un numero"));
-        let y = numeroCompreso(numero);
-        if (differenza(numeroUtente, y) === false) {
-            numeroUtente.push(y)
+
+
+
+function Comparazione(arrayA, arrayB) {
+    let n = [];
+    for (let index = 0; index < arrayA.length; index++) {
+        if (arrayA[index] === arrayB[index]) {
+            n.push(arrayA[index]);
+        } else {
+            n.push("non presente")
         }
+        
     }
-    return numeroUtente;
+    return n;
 }
 
 
@@ -47,6 +49,19 @@ function getRandomNumber(){
         }
     }
     return numeri;
+}
+
+function NumeriGiocatore() {
+    let numeroUtente = [];
+    // -uso ciclo while numeroUtente.length < 5 con al interno prompt per avere 5 numeri dal utente;
+    while (numeroUtente.length < 5) {
+        const numero = Number.parseInt(prompt("Inserire un numero"));
+        let y = numeroCompreso(numero);
+        if (differenza(numeroUtente, y) === false) {
+            numeroUtente.push(y)
+        }
+    }
+    return numeroUtente;
 }
 
 function numeroCompreso(numeroComp){
