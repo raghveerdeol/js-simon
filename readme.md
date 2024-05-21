@@ -7,9 +7,7 @@ Descrizione:
 - return array numeri;
 - const numeriDaIndovinare = getRandomNumber;
 <!-- Da lì parte un timer di 30 secondi. -->
-- aggiungo setTimeOut con (30 * 1000) e diventa ---> const timer = setTimeout(function{
-    NumeriDaindivinare = []; 
-}, 30*1000) - 
+
 <!-- Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt(). -->
     -creo una funzione NumeriGiocatore
     - creo let numeroUtente = [];

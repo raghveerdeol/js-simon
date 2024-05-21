@@ -1,7 +1,11 @@
-const numeriDaIndovinare = getRandomNumber();
-console.log(numeriDaIndovinare);
+let hEl = document.querySelector("div#random-num");
+let numeriDaIndovinare = getRandomNumber();
+hEl.append(numeriDaIndovinare);
 
-
+console.log(numeriDaIndovinare); 
+const timer = setTimeout(function (){
+    hEl.innerHTML = "";
+}, 30 * 1000);
 
 
 
