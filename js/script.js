@@ -1,19 +1,22 @@
 let randomEL = document.querySelector("div#random-num");
 let numeriDaIndovinare = getRandomNumber();
-randomEL.append(numeriDaIndovinare);
+randomEL.append("Ricorda questi Numeri:" + "  "+numeriDaIndovinare);
 console.log(numeriDaIndovinare)
 
 const timer = setTimeout(function (){
-    randomEL.innerHTML = "";
+    randomEL.innerHTML = "Ricorda questi Numeri:" + "....";
 }, 30 * 1000);
 
 const userTimer = setTimeout(function () {
     let userEL = document.querySelector("div#user-num");
+    let indovinatiEl = document.querySelector("div#indovinati");
     let numeriSelezionati = NumeriGiocatore();
-    userEL.append(numeriSelezionati);
-    const risultato = Comparazione(numeriDaIndovinare, numeriSelezionati)
+    const risultato = Comparazione(numeriDaIndovinare, numeriSelezionati);
+    const totIndovinati = numeriIndovinati(numeriDaIndovinare, numeriSelezionati);
+    userEL.append("Il Risultato:" + "  " + risultato);
+    indovinatiEl.append("Hai indovinato:" + " "+ totIndovinati + " " + "numeri");
     console.log(numeriSelezionati, risultato);
-}, 31 * 1000);
+}, 32 * 1000);
 
 
 // -------------------------------------------------FUNZIONI---------------------------------------------------
@@ -74,9 +77,18 @@ function Comparazione(arrayA, arrayB) {
         if (arrayA[index] === arrayB[index]) {
             n.push(arrayA[index]);
         } else {
-            n.push("non presente")
+            n.push("NO")
         }
         
+    }
+    return n;
+}
+function numeriIndovinati(arrayA, arrayB) {
+    let n = 0;
+    for (let index = 0; index < arrayA.length; index++) {
+        if (arrayA[index] === arrayB[index]) {
+            n = n + 1
+        }
     }
     return n;
 }
