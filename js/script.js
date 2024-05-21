@@ -1,13 +1,15 @@
 let randomEL = document.querySelector("div#random-num");
 let numeriDaIndovinare = getRandomNumber();
 randomEL.append(numeriDaIndovinare);
-let numeriSelezionati = NumeriGiocatore();
-console.log(randomEL.value, numeriSelezionati); 
+ 
 const timer = setTimeout(function (){
     randomEL.innerHTML = "";
 }, 30 * 1000);
 
-
+const userTimer = setTimeout(function () {
+    let numeriSelezionati = NumeriGiocatore();
+console.log(numeriSelezionati);
+}, 31 * 1000)
 
 
 // -verifico se il numero non è già presente ne array numeroUtente pusho il numero;
@@ -28,21 +30,7 @@ function NumeriGiocatore() {
     return numeroUtente;
 }
 
-function differenza(array, num) {
-    let n = 0;
-    let x = false;
-    while (n < array.length + 1) {
-        if (array[n] === num) {
-            x = true;
-        }
-        n += 1;
-    }
-    if (x) {
-        return true;
-    } else{
-        return false;
-    }
-}
+
 
 
 
@@ -66,5 +54,21 @@ function numeroCompreso(numeroComp){
         numeroComp = Number.parseInt(prompt("Inserire un numero"));
     }
     return numeroComp;
+}
+
+function differenza(array, num) {
+    let n = 0;
+    let x = false;
+    while (n < array.length + 1) {
+        if (array[n] === num) {
+            x = true;
+        }
+        n += 1;
+    }
+    if (x) {
+        return true;
+    } else{
+        return false;
+    }
 }
 
