@@ -7,16 +7,11 @@ Descrizione:
 - return array numeri;
 - const numeriDaIndovinare = getRandomNumber;
 <!-- Da lì parte un timer di 30 secondi. -->
-
+- aggiungo setTimeOut con (30 * 1000) e diventa ---> const timer = setTimeout(function{
+    NumeriDaindivinare = []; 
+}, 30*1000) - 
 <!-- Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt(). -->
-    -creo una funzione NumeriGiocatore
-    - creo let numeroUtente = [];
-    -uso ciclo while numeroUtente.length < 5 con al interno prompt per avere 5 numeri dal utente;
-    -verifico se il numero non è già presente ne array numeroUtente pusho il numero;
-    -se è presente ignoro il numero;
-const userNumers = setTimeOut(function{
-    NumeoGiocatore();
-} 31*1000)
+
 <!-- Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. -->
 creo funzione COmparazione(numeriGenerati, numeriGiocati){
     const a = numeriGenerati;

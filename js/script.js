@@ -10,6 +10,20 @@ const timer = setTimeout(function (){
 
 
 
+// -verifico se il numero non è già presente ne array numeroUtente pusho il numero;
+// -se è presente ignoro il numero;
+// const userNumers = setTimeOut(function{
+// NumeoGiocatore();
+// } 31*1000)
+function NumeriGiocatore() {
+    let numeroUtente = [];
+    let n = 0;
+    // -uso ciclo while numeroUtente.length < 5 con al interno prompt per avere 5 numeri dal utente;
+    while (numeroUtente.length < 5) {
+        const numeroUtente = Number.Math.floor(prompt("Inserire un numero"));
+        
+    }
+}
 
 
 
@@ -33,4 +47,10 @@ function getRandomNumber(){
     return numeri;
 }
 
+function numeroCompreso(numeroComp){
+    while (Number.isNaN(numeroComp) || numeroComp < 0 || numeroComp > 100 ) {
+        numeroComp = Number.parseInt(prompt("Inserire un numero"));
+    }
+    return numeroComp;
+}
 
