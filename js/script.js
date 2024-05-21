@@ -5,7 +5,7 @@ console.log(numeriDaIndovinare)
 
 const timer = setTimeout(function (){
     randomEL.innerHTML = "";
-}, 5 * 1000);
+}, 30 * 1000);
 
 const userTimer = setTimeout(function () {
     let userEL = document.querySelector("div#user-num");
@@ -13,28 +13,7 @@ const userTimer = setTimeout(function () {
     userEL.append(numeriSelezionati);
     const risultato = Comparazione(numeriDaIndovinare, numeriSelezionati)
     console.log(numeriSelezionati, risultato);
-}, 6 * 1000);
-
-
-
-
-
-function Comparazione(arrayA, arrayB) {
-    let n = [];
-    for (let index = 0; index < arrayA.length; index++) {
-        if (arrayA[index] === arrayB[index]) {
-            n.push(arrayA[index]);
-        } else {
-            n.push("non presente")
-        }
-        
-    }
-    return n;
-}
-
-
-
-
+}, 31 * 1000);
 
 
 // -------------------------------------------------FUNZIONI---------------------------------------------------
@@ -85,5 +64,20 @@ function differenza(array, num) {
     } else{
         return false;
     }
+}
+
+
+
+function Comparazione(arrayA, arrayB) {
+    let n = [];
+    for (let index = 0; index < arrayA.length; index++) {
+        if (arrayA[index] === arrayB[index]) {
+            n.push(arrayA[index]);
+        } else {
+            n.push("non presente")
+        }
+        
+    }
+    return n;
 }
 
