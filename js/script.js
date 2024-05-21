@@ -1,10 +1,10 @@
-let hEl = document.querySelector("div#random-num");
+let randomEL = document.querySelector("div#random-num");
 let numeriDaIndovinare = getRandomNumber();
-hEl.append(numeriDaIndovinare);
-
-console.log(numeriDaIndovinare); 
+randomEL.append(numeriDaIndovinare);
+let numeriSelezionati = NumeriGiocatore();
+console.log(randomEL.value, numeriSelezionati); 
 const timer = setTimeout(function (){
-    hEl.innerHTML = "";
+    randomEL.innerHTML = "";
 }, 30 * 1000);
 
 
@@ -17,11 +17,30 @@ const timer = setTimeout(function (){
 // } 31*1000)
 function NumeriGiocatore() {
     let numeroUtente = [];
-    let n = 0;
     // -uso ciclo while numeroUtente.length < 5 con al interno prompt per avere 5 numeri dal utente;
     while (numeroUtente.length < 5) {
-        const numeroUtente = Number.Math.floor(prompt("Inserire un numero"));
-        
+        const numero = Number.parseInt(prompt("Inserire un numero"));
+        let y = numeroCompreso(numero);
+        if (differenza(numeroUtente, y) === false) {
+            numeroUtente.push(y)
+        }
+    }
+    return numeroUtente;
+}
+
+function differenza(array, num) {
+    let n = 0;
+    let x = false;
+    while (n < array.length + 1) {
+        if (array[n] === num) {
+            x = true;
+        }
+        n += 1;
+    }
+    if (x) {
+        return true;
+    } else{
+        return false;
     }
 }
 
@@ -31,17 +50,12 @@ function NumeriGiocatore() {
 // -------------------------------------------------FUNZIONI---------------------------------------------------
 // - creo una funzione getRandomNUmber;
 function getRandomNumber(){
-    // - creo una variabile numeri vuota;
-    let n = 0;
     const numeri = [];
     // - al interno della quale creo un ciclo while/for con array.length < 5 che mi genera 5 numeri casuali;
     while (numeri.length < 5) {
         const randomNum = Math.floor(Math.random() *100) + 1;
-        // - nel ciclo while impongo una condizione "if" se numero già presente nel array ignora, se non presente pusha il numero nel array;
-        if (randomNum !== numeri[n]) {
-            // - return array numeri;
-            numeri.push(randomNum);
-            n += 1;
+        if (differenza(numeri, randomNum) === false) {
+            numeri.push(randomNum)
         }
     }
     return numeri;
